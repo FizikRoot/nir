@@ -74,7 +74,8 @@ def precision_at_k(r, k):
     assert k >= 1
     r = np.asarray(r)[:k] != 0
     if r.size != k:
-        raise ValueError('Relevance score length < k')
+        mes = 'Relevance score length' + str(r.size) + ' < k ' + str(k)
+        raise ValueError(mes)
     return np.mean(r)
 
 
