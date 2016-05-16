@@ -65,3 +65,33 @@ def popularity(trainSet, testSet, recoSet):
             all += 1
 
     return 1.0 * ret / all
+
+def recall2(trainSet, testSet, recoSet):
+    hit = 0
+    all = 0
+    import numpy as np
+
+    for userID in trainSet:
+        testItems = testSet.get(userID, { })
+        recoItems = recoSet.get(userID, { })
+        mean = np.mean(np.array(testItems.values()))
+
+        for itemID in recoItems:
+            if itemID in testItems:
+                hit += 1
+        all += len(testItems)
+    return 1.0 * hit / all
+
+def precision2(trainSet, testSet, recoSet):
+    hit = 0
+    all = 0
+    for userID in trainSet:
+        testItems = testSet.get(userID, { })
+        recoItems = recoSet.get(userID, { })
+        mean = np.mean(np.array(testItems.values()))
+
+        for itemID in recoItems:
+            if itemID in testItems:
+                hit += 1
+        all += len(recoItems)
+    return 1.0 * hit / all
