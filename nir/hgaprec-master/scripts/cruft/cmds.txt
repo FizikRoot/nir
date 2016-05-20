@@ -1,0 +1,5 @@
+CMD = /scratch/pgopalan/hgaprec/src/hgaprec  -dir /scratch/pgopalan/hgaprec/analysis/data/mendeley -m 261248 -n 80278 -k 100 -rfreq 10 -rating-threshold 1 -chi -chinmf
+CMD = /scratch/pgopalan/hgaprec/src/hgaprec  -dir /scratch/pgopalan/hgaprec/analysis/data/echonest -m 384546 -n 1019318 -k 100 -rfreq 10 -rating-threshold 1 -chi -chinmf
+CMD = /scratch/pgopalan/hgaprec/src/hgaprec  -dir /scratch/pgopalan/hgaprec/analysis/data/movielens -m 3681 -n 6040 -k 100 -rfreq 10 -rating-threshold 4 -chi -chinmf
+CMD = /scratch/pgopalan/hgaprec/src/hgaprec  -dir /scratch/pgopalan/hgaprec/analysis/data/netflix -m 17770 -n 480189 -k 100 -rfreq 10 -rating-threshold 4 -chi -chinmf
+CMD = /scratch/pgopalan/hgaprec/src/hgaprec  -dir /scratch/pgopalan/hgaprec/analysis/data/nyt -m 107523 -n 1615675 -k 100 -rfreq 10 -rating-threshold 1 -chi -chinmf
