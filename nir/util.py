@@ -9,6 +9,24 @@ def loadDataSet(filename, split = "::"):
     file.close()
     return dataSet
 
+def loadDataSet2(filename, split = "::"):
+
+    dataSet = []
+    trainSet = dict()
+    testSet = dict()
+    file = open(filename, "r")
+    for line in file.readlines():
+        userID, itemID, rating = line.split(split)
+        dataSet.append((int(userID), int(itemID), int(float(rating))))
+    file.close()
+    from sklearn.cross_validation import train_test_split
+    trainSet1, testSet1 = train_test_split(dataSet, test_size=0.2, random_state=42)
+    for line in trainSet1:
+        trainSet.setdefault(line[0], dict())[line[1]] = line[2]
+    for line in testSet1:
+        testSet.setdefault(line[0], dict())[line[1]] = line[2]
+    return trainSet, testSet
+
 def recall(trainSet, testSet, recoSet):
     hit = 0
     all = 0
